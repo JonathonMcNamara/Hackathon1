@@ -9,7 +9,13 @@ export class PostsController extends BaseController {
     this.router
       .get("", this.getAll)
       .get("/:id", this.getPostById)
+<<<<<<< HEAD
       // .get("/:id/comments", this.getCommentsOnPost)
+=======
+
+      // .get("/:id/comments",this.getCommentsOnPost)
+
+>>>>>>> 9ef3d669dc48e4bf4f156f1e7e664a8cfaf6848e
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
       .delete('/:id', this.deletePost)
