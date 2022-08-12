@@ -15,3 +15,7 @@ header {
   max-height: 25vh;
   image-rendering: auto;
 }
+
+textarea {
+  width: fit-content;
+}
