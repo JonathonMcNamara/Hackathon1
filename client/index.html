@@ -51,9 +51,7 @@
 
       <!-- View port -->
       <section class="col-6 bg-secondary">
-        <div class="row">
-
-          <!-- search  |  add post -->
+        <div class="row mb-3">
           <div class="col-8 offset-1 pt-2">
             <div class="dropdown">
               <button class="btn btn-outline-dark dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -70,11 +68,42 @@
           <div class="col-1 pt-2">
             <button class="btn btn-outline-dark">Add</button>
           </div>
+        </div>
 
-          <!-- list of posts -->
-          <div class="col-12">
+        <!-- list of posts -->
+        <div id="post" class="row justify-content-center">
 
+
+          <!-- this is the inject template -->
+          <div class="card mb-3 text-dark" style="width: 40rem;">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <img src="http://thiscatdoesnotexist.com" class="card-img px-5" alt="...">
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                card's content.
+              </p>
+              <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                Comments
+              </button>
+              <div class="collapse" id="collapseExample">
+                <input type="text">
+                <div class="card card-body">
+                  <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Recipient's username"
+                      aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <span class="input-group-text" id="basic-addon2">@example.com</span>
+                  </div>
+                  <div>
+                    Some placeholder content for the collapse component. This panel is hidden by default but revealed
+                    when the user
+                    activates the relevant trigger.
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 

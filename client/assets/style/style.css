@@ -1,7 +1,17 @@
 .window-size {
   height: 90vh;
+  overflow-y: scroll;
+}
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 header {
   height: 10vh;
+}
+
+.img-post {
+  max-height: 25vh;
+  image-rendering: auto;
 }
