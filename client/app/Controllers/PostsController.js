@@ -6,7 +6,7 @@ import { Pop } from "../Utils/Pop.js";
 function _drawPosts() {
   let template = ''
   ProxyState.posts.forEach(p => template += p.PostTemplate)
-  // document.getElementById('post').innerHTML = template
+  document.getElementById('post').innerHTML = template
   console.log(template);
 }
 export class PostsController {
