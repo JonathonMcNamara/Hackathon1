@@ -10,7 +10,9 @@ export class PostsController extends BaseController {
       .get("/:id",this.getPostById)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
+      .delete('/:id',this.deletePost)
   }
+  
 
   async getAll(req, res, next) {
     try {
@@ -37,6 +39,17 @@ export class PostsController extends BaseController {
       return res.send(post)
     } catch (error) {
       next (error)
+    }
+  }
+  
+  async deletePost(req,res,next) {
+    try {
+      const postId = req.params.id
+      const userId = req.userInfo.id
+      await postsService.deletePost(postId,userId)
+      return res.send('Post deleted')
+    } catch (error) {
+    next(error)
     }
   }
 
