@@ -3,6 +3,11 @@ import { BadRequest } from "../utils/Errors.js"
 import { postsService } from "./PostsService.js"
 
 class CommentsService{
+
+  async getAll(query) {
+    return await dbContext.Comments.find(query).populate('comment')
+  }
+
     async createComment(commentData){
         let post = await dbContext.Posts.findById(commentData.postId)
         if(!post){
