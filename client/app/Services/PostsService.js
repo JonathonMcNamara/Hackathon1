@@ -17,7 +17,7 @@ class PostsService {
   }
 
   async deletePost(postId) {
-    await api.delete(`api/posts/${postId}`)
+    await api.delete(`/api/posts/${postId}`)
     ProxyState.posts = ProxyState.posts.filter(p => p.creatorId != postId)
 
   }

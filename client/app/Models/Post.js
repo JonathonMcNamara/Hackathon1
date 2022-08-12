@@ -26,7 +26,7 @@ export class Post {
                 </span>
                 <span>
                   <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
-                  <i class="mdi mdi-delete text-danger selectable" title="Delete Post"></i>
+                  <i class="mdi mdi-delete text-danger selectable" title="Delete Post" onclick="app.postsController.deletePost('${this.creatorId}')"></i>
                 </span>
               </div>
               <img src="${this.img}" class="card-img px-5" alt="...">
