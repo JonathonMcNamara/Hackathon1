@@ -19,3 +19,7 @@ header {
 textarea {
   width: fit-content;
 }
+
+.team {
+  margin-top: 10vh;
+}

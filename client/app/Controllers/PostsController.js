@@ -44,13 +44,10 @@ export class PostsController {
         // @ts-ignore
         img: form.img.value,
         // @ts-ignore
-        votes: form.vote.value,
-        // @ts-ignore
-        date: form.date.value
-
       }
 
-      await postsService.createPosts()
+      await postsService.createPosts(newPost)
+      form.reset()
     } catch (error) {
       console.error('[creating posts]', error)
       Pop.error(error)
