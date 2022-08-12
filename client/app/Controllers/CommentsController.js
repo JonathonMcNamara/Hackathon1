@@ -15,6 +15,7 @@ export class CommentsController {
 
   async getComments() {
     try {
+      console.log('comments here');
       await commentsService.getComments()
     } catch (error) {
       console.error('[getting comments]', error)
