@@ -6,6 +6,7 @@ import { Pop } from "../Utils/Pop.js";
 function _drawPosts() {
   let template = ''
   ProxyState.posts.forEach(p => template += p.PostTemplate)
+  // @ts-ignore
   document.getElementById('post').innerHTML = template
 }
 export class PostsController {
@@ -27,15 +28,24 @@ export class PostsController {
 
   async createPosts() {
     try {
+      // @ts-ignore
       window.event.preventDefault()
+      // @ts-ignore
       let form = window.event.target
 
+      // @ts-ignore
       let newPost = {
+        // @ts-ignore
         team: form.team.value,
+        // @ts-ignore
         title: form.title.value,
+        // @ts-ignore
         description: form.description.value,
+        // @ts-ignore
         img: form.img.value,
+        // @ts-ignore
         votes: form.vote.value,
+        // @ts-ignore
         date: form.date.value
 
       }
