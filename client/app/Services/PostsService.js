@@ -9,7 +9,8 @@ class PostsService {
     ProxyState.posts = res.data.map(p => new Post(p))
   }
 
-  async createPosts(postFormData) {
+  async createPost(postFormData) {
+    console.log('create post in service?');
     let res = await api.post('/api/posts', postFormData)
     let post = new Post(res.data)
     ProxyState.posts = [...ProxyState.posts, post]
