@@ -20,11 +20,6 @@
 <body class="bg-dark">
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light">
-      <a class="navbar-brand" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ml-2">Hackathon1</span>
-      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -43,14 +38,15 @@
     <div class="row window-size">
 
       <!-- Team A -->
-      <section class="col-3 bg-dark text-center">
+      <section class="col-3 text-center fixed-top">
         <h1>Team Jake</h1>
         <h3>Votes: <span>0</span></h3>
-        <img class="img-fluid" src="http://thiscatdoesnotexist.com" alt="">
+        <img class="img-fluid rounded-circle" src="https://ca.slack-edge.com/T1GGQN1RU-U1GGYL6CF-g83107b4a2a4-512"
+          alt="">
       </section>
 
       <!-- View port -->
-      <section class="col-6 bg-secondary">
+      <section class="col-6 offset-3 bg-secondary">
         <div class="row mb-3">
           <div class="col-8 offset-1 pt-2">
             <div class="dropdown">
@@ -77,17 +73,30 @@
           <!-- this is the inject template -->
           <div class="card mb-3 text-dark" style="width: 40rem;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <span class="d-flex">
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                  <!-- inject vote count below -->
+                  125
+                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                  <span class="ms-2">Poster Name</span>
+                </span>
+                <span>
+                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
+                  <i class="mdi mdi-delete text-danger selectable" title="Delete Post"></i>
+                </span>
+              </div>
               <img src="http://thiscatdoesnotexist.com" class="card-img px-5" alt="...">
+              <h4>Title of post</h4>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's content.
               </p>
-              <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+              <button class="btn btn-outline-dark rounded-top" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Comments
               </button>
               <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+                <div class="card card-body bg-secondary">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Add Comment..."
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -95,45 +104,31 @@
                   </div>
                   <div id="comment">
                     <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
+                    <div class="border-1 rounded elevation-2 p-2 my-2 bg-light text-dark">
+                      <div class="d-flex flex-row justify-content-between">
+                        <span>
+                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                          <!-- inject vote count below -->
+                          7
+                          <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                        </span>
+                        <h5>name</h5>
+                        <span>
+                          <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Comment"></i>
+                          <i class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
+                        </span>
+                      </div>
+
                       <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
+                        <p>
+                          Some placeholder content for the collapse component. This panel is hidden by default but
+                          revealed
+                          when the user
+                          activates the relevant trigger.
+                        </p>
                       </div>
                     </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
+
 
                   </div>
                 </div>
@@ -145,17 +140,30 @@
           <!-- this is the inject template -->
           <div class="card mb-3 text-dark" style="width: 40rem;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <span class="d-flex">
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                  <!-- inject vote count below -->
+                  125
+                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                  <span class="ms-2">Poster Name</span>
+                </span>
+                <span>
+                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
+                  <i class="mdi mdi-delete text-danger selectable" title="Delete Post"></i>
+                </span>
+              </div>
               <img src="http://thiscatdoesnotexist.com" class="card-img px-5" alt="...">
+              <h4>Title of post</h4>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's content.
               </p>
-              <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+              <button class="btn btn-outline-dark rounded-top" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Comments
               </button>
               <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+                <div class="card card-body bg-secondary">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Add Comment..."
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -163,45 +171,31 @@
                   </div>
                   <div id="comment">
                     <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
+                    <div class="border-1 rounded elevation-2 p-2 my-2 bg-light text-dark">
+                      <div class="d-flex flex-row justify-content-between">
+                        <span>
+                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                          <!-- inject vote count below -->
+                          7
+                          <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                        </span>
+                        <h5>name</h5>
+                        <span>
+                          <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Comment"></i>
+                          <i class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
+                        </span>
+                      </div>
+
                       <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
+                        <p>
+                          Some placeholder content for the collapse component. This panel is hidden by default but
+                          revealed
+                          when the user
+                          activates the relevant trigger.
+                        </p>
                       </div>
                     </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
+
 
                   </div>
                 </div>
@@ -213,17 +207,30 @@
           <!-- this is the inject template -->
           <div class="card mb-3 text-dark" style="width: 40rem;">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
+              <div class="d-flex flex-row justify-content-between align-items-center">
+                <span class="d-flex">
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                  <!-- inject vote count below -->
+                  125
+                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                  <span class="ms-2">Poster Name</span>
+                </span>
+                <span>
+                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
+                  <i class="mdi mdi-delete text-danger selectable" title="Delete Post"></i>
+                </span>
+              </div>
               <img src="http://thiscatdoesnotexist.com" class="card-img px-5" alt="...">
+              <h4>Title of post</h4>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
                 card's content.
               </p>
-              <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse"
+              <button class="btn btn-outline-dark rounded-top" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Comments
               </button>
               <div class="collapse" id="collapseExample">
-                <div class="card card-body">
+                <div class="card card-body bg-secondary">
                   <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Add Comment..."
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
@@ -231,45 +238,31 @@
                   </div>
                   <div id="comment">
                     <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
+                    <div class="border-1 rounded elevation-2 p-2 my-2 bg-light text-dark">
+                      <div class="d-flex flex-row justify-content-between">
+                        <span>
+                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                          <!-- inject vote count below -->
+                          7
+                          <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                        </span>
+                        <h5>name</h5>
+                        <span>
+                          <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Comment"></i>
+                          <i class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
+                        </span>
+                      </div>
+
                       <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
+                        <p>
+                          Some placeholder content for the collapse component. This panel is hidden by default but
+                          revealed
+                          when the user
+                          activates the relevant trigger.
+                        </p>
                       </div>
                     </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
-                    <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2">
-                      <h5>name</h5>
-                      <div>
-                        Some placeholder content for the collapse component. This panel is hidden by default but
-                        revealed
-                        when the user
-                        activates the relevant trigger.
-                      </div>
-                    </div>
+
 
                   </div>
                 </div>
@@ -281,10 +274,11 @@
       </section>
 
       <!-- Team B -->
-      <section class="col-3 bg-dark text-center">
+      <section class="col-3 offset-9 bg-dark text-center fixed-top mt-5">
         <h1>Team Mick</h1>
         <h3>Votes: <span>0</span></h3>
-        <img class="img-fluid" src="http://thiscatdoesnotexist.com" alt="">
+        <img class="img-fluid rounded-circle" src="https://ca.slack-edge.com/T1GGQN1RU-U015QPWCW8H-475e10cecf58-512"
+          alt="">
       </section>
     </div>
   </main>
