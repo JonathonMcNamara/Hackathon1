@@ -1,15 +1,14 @@
 export class Post {
   constructor(data) {
-    this.creatorName = data.postInfo.name
-    this.creatorId = data.creatorId
-    this.team = data.team
-    this.title = data.title
-    this.img = data.img
-    this.description = data.description
-    this.votes = data.votes
-    this.date = data.date
-    this.id = data.id
-
+    // this.creatorName = data.postInfo.name || ''
+    this.creatorId = data.creatorId || ''
+    this.team = data.team || ''
+    this.title = data.title || ''
+    this.img = data.img || ''
+    this.description = data.description || ''
+    this.votes = data.votes || 0
+    this.date = data.date || ''
+    this.id = data.id || ''
   }
 
 

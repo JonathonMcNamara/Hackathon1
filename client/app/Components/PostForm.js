@@ -3,8 +3,8 @@ import { Post } from "../Models/Post.js";
 export function getPostForm(post = new Post({})) {
 
   let submitAction = 'app.postsController.createPost()'
-  if (post.creatorId) {
-    submitAction = `app.postsController.editPost('${post.creatorId}')`
+  if (post.id) {
+    submitAction = `app.postsController.editPost('${post.id}')`
   }
   return `
   <form class="col-12 bg-white p-3 elevation-2 rounded" onsubmit="${submitAction}">

@@ -1,4 +1,5 @@
 import { ProxyState } from "../AppState.js";
+import { getPostForm } from "../Components/PostForm.js";
 import { postsService } from "../Services/PostsService.js";
 import { Pop } from "../Utils/Pop.js";
 
@@ -9,10 +10,15 @@ function _drawPosts() {
   // @ts-ignore
   document.getElementById('post').innerHTML = template
 }
+
+function _drawPostForm() {
+  document.getElementById('postForm').innerHTML = getPostForm()
+}
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
     _drawPosts()
+    _drawPostForm()
     this.getPosts()
   }
 
@@ -26,8 +32,9 @@ export class PostsController {
   }
 
 
-  async createPosts() {
+  async createPost() {
     try {
+      console.log('creating a form?');
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
@@ -44,9 +51,10 @@ export class PostsController {
         // @ts-ignore
         img: form.img.value,
         // @ts-ignore
+        date: 'today'
       }
 
-      await postsService.createPosts(newPost)
+      await postsService.createPost(newPost)
       form.reset()
     } catch (error) {
       console.error('[creating posts]', error)
