@@ -1,6 +1,7 @@
 
 export class Comment {
   constructor(data) {
+    this.commentInfo = data.commentInfo
     this.description = data.description
     this.creatorId = data.creatorId
     this.postId = data.postId

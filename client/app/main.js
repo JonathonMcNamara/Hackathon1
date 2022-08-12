@@ -8,7 +8,7 @@ class App {
 
   // valuesController = new ValuesController();
   postsController = new PostsController();
-  // commentsController = new CommentsController();
+  commentsController = new CommentsController();
 }
 
 // @ts-ignore
