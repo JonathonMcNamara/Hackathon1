@@ -1,20 +1,20 @@
 import { Auth0Provider } from "@bcwdev/auth0provider";
 import BaseController from "../utils/BaseController.js";
 import { postsService } from "../services/PostsService.js";
-import { commentsService } from "../services/CommentsService.js";
+// import { commentsService } from "../services/CommentsService.js";
 
 export class PostsController extends BaseController {
   constructor() {
     super("/api/posts");
     this.router
       .get("", this.getAll)
-      .get("/:id",this.getPostById)
-      .get("/:id/comments",this.getCommentsOnPost)
+      .get("/:id", this.getPostById)
+      // .get("/:id/comments", this.getCommentsOnPost)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
-      .delete('/:id',this.deletePost)
+      .delete('/:id', this.deletePost)
   }
-  
+
 
   async getAll(req, res, next) {
     try {
@@ -35,32 +35,32 @@ export class PostsController extends BaseController {
     }
   }
 
-  async getCommentsOnPost(req,res,next) {
-    try {
-    let comments = await commentsService.getCommentsOnPost(req.params.id)
-    res.send(comments)  
-    } catch (error) {
-    next(error)  
-    }
-  }
+  // async getCommentsOnPost(req,res,next) {
+  //   try {
+  //   let comments = await commentsService.getCommentsOnPost(req.params.id)
+  //   res.send(comments)  
+  //   } catch (error) {
+  //   next(error)  
+  //   }
+  // }
 
-  async getPostById(req,res,next){
+  async getPostById(req, res, next) {
     try {
       const post = await postsService.getPostById(req.params.id)
       return res.send(post)
     } catch (error) {
-      next (error)
+      next(error)
     }
   }
-  
-  async deletePost(req,res,next) {
+
+  async deletePost(req, res, next) {
     try {
       const postId = req.params.id
       const userId = req.userInfo.id
-      await postsService.deletePost(postId,userId)
+      await postsService.deletePost(postId, userId)
       return res.send('Post deleted')
     } catch (error) {
-    next(error)
+      next(error)
     }
   }
 
