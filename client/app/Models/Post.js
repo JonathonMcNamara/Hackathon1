@@ -54,22 +54,7 @@ export class Post {
                           7
                           <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
                         </span>
-                        <h5>name</h5>
-                        <span>
-                          <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Comment"></i>
-                          <i class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
-                        </span>
-                      </div>
-
-                      <div>
-                        <p>
-                          Some placeholder content for the collapse component. This panel is hidden by default but
-                          revealed
-                          when the user
-                          activates the relevant trigger.
-                        </p>
-                      </div>
-                    </div>
+                        
 
 
                   </div>

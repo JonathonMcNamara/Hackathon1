@@ -20,7 +20,7 @@ class CommentsService {
   }
 
   async getAll(query) {
-    return await dbContext.Comments.find(query).populate('comment')
+    return await dbContext.Comments.find(query).populate('creator')
   }
 
   async createComment(commentData) {
