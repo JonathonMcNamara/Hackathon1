@@ -161,12 +161,13 @@
             <h5 class="modal-title text-dark" id="postModalLabel">Create Post</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
+          <div id="postForm" class="modal-body">
+
             <form class="col-12 bg-white p-3 elevation-2 rounded" onsubmit="">
               <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                   <label class="form-label" for="title">Title</label>
-                  <input class="form-control" type="text" minlength="5" id="title" name="title" value="${}">
+                  <input class="form-control" type="text" minlength="5" id="title" name="title" value="">
                 </div>
                 <div class="col-6">
                   <label class="form-label" for="img"></label>
@@ -174,12 +175,13 @@
                 </div>
                 <div class="col-12">
                   <label class="form-label" for="year">Image Url</label>
-                  <input class="form-control" type="number" id="year" name="year" value="${}">
+                  <input class="form-control" type="number" id="year" name="year" value="${car.year}">
                 </div>
                 <button type="submit" class="btn btn-primary w-100 p-2 mt-3 text-light"
                   data-bs-dismiss="modal">Submit</button>
               </div>
             </form>
+
           </div>
         </div>
       </div>
