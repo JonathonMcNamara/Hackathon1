@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 export const PostSchema = new Schema(
     {
-        team: { type: String, required: true, minlength: 5 },
+        team: { type: String, required: true, minlength: 2 },
         creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
         title: { type: String, required: true, minlength: 5, maxlength: 20 },
         img: { type: String, required: true },
