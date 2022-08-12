@@ -9,16 +9,13 @@ function _drawPosts() {
   ProxyState.posts.forEach(p => template += p.PostTemplate)
   // @ts-ignore
   document.getElementById('post').innerHTML = template
-}
-
-function _drawPostForm() {
   document.getElementById('postForm').innerHTML = getPostForm()
 }
+
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
     _drawPosts()
-    _drawPostForm()
     this.getPosts()
   }
 

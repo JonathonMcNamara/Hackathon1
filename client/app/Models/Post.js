@@ -1,6 +1,6 @@
 export class Post {
   constructor(data) {
-    // this.creatorName = data.postInfo.name || ''
+    this.postInfo = data.postInfo
     this.creatorId = data.creatorId || ''
     this.team = data.team || ''
     this.title = data.title || ''
@@ -22,7 +22,7 @@ export class Post {
                   <!-- inject vote count below -->
                   ${this.votes}
                   <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
-                  <span class="ms-2">${this.creatorName} | ${this.date}</span>
+                  <span class="ms-2">${this.postInfo.name} | ${this.date}</span>
                 </span>
                 <span>
                   <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
