@@ -9,8 +9,8 @@ class PostsService {
     ProxyState.posts = res.data.map(p => new Post(p))
   }
 
-  async createPosts() {
-    let res = await api.post('/api/posts', postFormData) //create post form comp.
+  async createPosts(postFormData) {
+    let res = await api.post('/api/posts', postFormData)
     let post = new Post(res.data)
     ProxyState.posts = [...ProxyState.posts, post]
     console.log(ProxyState.posts);
@@ -19,7 +19,6 @@ class PostsService {
   async deletePost(postId) {
     await api.delete(`/api/posts/${postId}`)
     ProxyState.posts = ProxyState.posts.filter(p => p.creatorId != postId)
-
   }
 
 }
