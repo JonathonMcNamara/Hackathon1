@@ -7,7 +7,7 @@ class PostsService{
         } 
     
     async getPostById(id) {
-        const post = await dbContext.Posts.findById(id).populate('creatorInfo')
+        const post = await dbContext.Posts.findById(id).populate('creatorId')
         if (!post){
             throw new BadRequest('Invalid post')
         }
@@ -19,9 +19,6 @@ class PostsService{
         await post.populate('creatorId')
         return post
     }
-
-
-   
 }
 
 
