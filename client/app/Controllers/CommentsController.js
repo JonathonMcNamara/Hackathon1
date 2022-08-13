@@ -28,7 +28,7 @@ export class CommentsController {
 
   async createComment(postId) {
     try {
-            console.log('creating a comment');
+      console.log('creating a comment');
       // @ts-ignore
       window.event.preventDefault()
       // @ts-ignore
@@ -41,7 +41,7 @@ export class CommentsController {
         postId
       }
 
-      
+
       await commentsService.createComment(newComment)
       // @ts-ignore
       form.reset()
@@ -53,7 +53,7 @@ export class CommentsController {
 
   async deleteComment(commentId) {
     try {
-      // console.log('getting here:?');
+      console.log('getting here:?');
       await commentsService.deleteComment(commentId)
     } catch (error) {
       console.error(error)

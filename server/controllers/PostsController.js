@@ -10,12 +10,23 @@ export class PostsController extends BaseController {
       .get("", this.getAll)
       .get("/:id", this.getPostById)
       .get("/:id/comments", this.getCommentsOnPost)
+      .put("/:id/vote", this.upVotes)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
       .put("/:id", this.editPost)
       .delete('/:id', this.deletePost)
   }
 
+  // we need a function for upvotes & downvotes as a .post
+
+  async upVotes(req, res, next) {
+    try {
+      let vote = await postsService.upVotes(req.params.id)
+      res.send(vote)
+    } catch (error) {
+      next(error)
+    }
+  }
 
   async getAll(req, res, next) {
     try {

@@ -16,13 +16,14 @@ class CommentsService {
     let res = await api.post('/api/comments', commentFormData)
     let comment = new Comment(res.data)
     ProxyState.comments = [...ProxyState.comments, comment]
-    console.log('testing comments',ProxyState.comments);
+    console.log('testing comments', ProxyState.comments);
   }
 
   async deleteComment(commentId) {
-    
+
     await api.delete(`api/comments/${commentId}`)
-    ProxyState.comments = ProxyState.comments.filter(c => c.creatorId != commentId)
+    ProxyState.comments = ProxyState.comments.filter(c => c.id != commentId)
+    console.log('getting to the delete service', ProxyState.comments);
   }
 
 }
