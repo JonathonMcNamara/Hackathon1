@@ -14,8 +14,10 @@ export class PostsController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
       .put("/:id", this.editPost)
+      .put(':/id',this.editVote)
       .delete('/:id', this.deletePost)
   }
+  
 
   // we need a function for upvotes & downvotes as a .post
 
@@ -84,6 +86,16 @@ export class PostsController extends BaseController {
       return res.send('Post deleted')
     } catch (error) {
       next(error)
+    }
+  }
+
+  async editVote(req,res,next) {
+    try {
+    const postId = req.params.id
+    const userId = req.userInfo.id
+    await postsService.editVote(postId, userId)
+    } catch (error) {
+    next(error) 
     }
   }
 

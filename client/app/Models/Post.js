@@ -22,7 +22,7 @@ export class Post {
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <span class="d-flex">
-                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote" onclick="app.postsController.upVote('${this.id}')"></i>
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote" onclick="app.postsController.upVotes('${this.id}')"></i>
                   ${this.votes}
                   <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote" onclick="app.postsController.downVote('${this.id}')"></i>
                   <span class="ms-2">${this.postInfo.name} | ${this.date.toLocaleTimeString()}</span>

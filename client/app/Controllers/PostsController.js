@@ -99,9 +99,9 @@ export class PostsController {
     }
   }
 
-  async upVote(postId) {
+  async upVotes(postId) {
     try {
-      await postsService.upVote(postId)
+      await postsService.upVotes(postId)
     } catch (error) {
       console.error('[up voting]', error)
       Pop.error(error)
