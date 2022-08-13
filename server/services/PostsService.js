@@ -2,6 +2,10 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PostsService {
+    editVote(postId, userId) {
+      throw new Error("Method not implemented.")
+    }
+
     async upVotes(postId) {
         let post = await this.getPostById(postId)
         post.votes++

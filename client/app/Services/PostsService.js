@@ -15,6 +15,7 @@ class PostsService {
     console.log('create post in service?');
     let res = await api.post('/api/posts', postFormData)
     let post = new Post(res.data)
+    // @ts-ignore
     ProxyState.posts = ProxyState.posts.sort((a, b) => a.date - b.date)
     ProxyState.posts = [...ProxyState.posts, post]
     console.log(ProxyState.posts);
@@ -34,7 +35,8 @@ class PostsService {
   }
 
   async upVotes(postId) {
-    console.log('getting here?');
+        let res = await api.put(`/api/posts/${postId}`)
+    res.data.votes++
     await api.put(`/api/posts/${postId}/vote`)
 
   }
