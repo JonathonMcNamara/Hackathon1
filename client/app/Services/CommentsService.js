@@ -20,8 +20,9 @@ class CommentsService {
   }
 
   async deleteComment(commentId) {
+    
     await api.delete(`api/comments/${commentId}`)
-    ProxyState.comments.filter(c => c.creatorId != commentId)
+    ProxyState.comments = ProxyState.comments.filter(c => c.creatorId != commentId)
   }
 
 }

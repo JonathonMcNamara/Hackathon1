@@ -33,7 +33,7 @@ class PostsService {
         post.title = postData.title || post.title
         post.description = postData.description || post.description
         post.img = postData.img || post.img
-        post.date = postData.date || post.img
+        post.date = postData.date || post.date
 
         await post.save()
         return post

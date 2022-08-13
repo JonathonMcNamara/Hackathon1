@@ -33,6 +33,10 @@ class PostsService {
     ProxyState.posts = ProxyState.posts.filter(p => p.id != postId)
   }
 
+  async upVote(postId) {
+    let res = await api.put(`/api/posts/${postId}`)
+    res.data.votes++
+    console.log('we getting here?', res.data.votes);
+  }
 }
-
 export const postsService = new PostsService()
