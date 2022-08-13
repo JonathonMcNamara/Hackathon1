@@ -1,18 +1,21 @@
 import { dbContext } from "../db/DbContext.js"
-import { BadRequest } from "../utils/Errors.js"
+import { BadRequest, Forbidden } from "../utils/Errors.js"
 import { postsService } from "./PostsService.js"
 
 class CommentsService {
   async deleteComment(commentId, userId) {
     let comment = await this.getCommentById(commentId)
     if (comment.creatorId.toString() !== userId) {
-      throw new BadRequest('Invalid Comment')
+      throw new Forbidden('wrong id')
     }
+    await comment.remove()
+    // await comment.populate('creator')
     return comment
   }
   
-  async getCommentById(commentId) {
-    let comment = await dbContext.Comments.findById(commentId)
+  async getCommentById(id) {
+    let comment = await dbContext.Comments.findById(id)
+    console.log('getcommentby id', comment);
     if (!comment) {
       throw new BadRequest ('invalid comment id')
     }
