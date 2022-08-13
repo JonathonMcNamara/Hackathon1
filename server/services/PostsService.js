@@ -2,6 +2,9 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PostsService {
+    editVote(postId, userId) {
+        
+    }
 
     async getAll(query = {}) {
         return await dbContext.Posts.find(query).populate('postInfo')
