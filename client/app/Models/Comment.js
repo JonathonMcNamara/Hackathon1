@@ -5,7 +5,7 @@ export class Comment {
     this.description = data.description || ''
     this.creatorId = data.creatorId
     this.postId = data.postId
-    this.id = data.id
+    this.id = data.id || ''
   }
 
   get commentTemplate() {
