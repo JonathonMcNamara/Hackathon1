@@ -35,8 +35,8 @@ class PostsService {
 
   async upVote(postId) {
     let res = await api.put(`/api/posts/${postId}`)
-    res.data.votes++
-    console.log('we getting here?', res.data.votes);
+
+    console.log('counting?', count);
   }
 }
 export const postsService = new PostsService()
