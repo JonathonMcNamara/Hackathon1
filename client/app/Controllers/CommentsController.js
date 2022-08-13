@@ -24,7 +24,7 @@ export class CommentsController {
     }
   }
 
-  async createComment() {
+  async createComment(postId) {
     try {
             console.log('creating a comment');
       // @ts-ignore
@@ -35,8 +35,8 @@ export class CommentsController {
       // @ts-ignore
       let newComment = {
         // @ts-ignore
-        description: form.description,
-
+        description: form.description.value,
+        postId
       }
 
       

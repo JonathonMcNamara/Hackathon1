@@ -43,7 +43,7 @@ export class Post {
               </button>
               <div class="collapse" id="collapse${this.creatorId}">
                 <div class="card card-body bg-secondary">
-                      ${getCommentForm()}
+                      ${getCommentForm(this.id)}
                       ${this.Comments}
                     
                   

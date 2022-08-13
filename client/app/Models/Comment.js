@@ -1,13 +1,13 @@
 
 export class Comment {
   constructor(data) {
-    this.creator = data.creator
+    this.creator = data.creator || {}
     this.description = data.description || ''
     this.creatorId = data.creatorId
     this.postId = data.postId
     this.id = data.id || ''
   }
-
+// pop creator on server side on create ship from yesterday
   get commentTemplate() {
     return `
       <div class="border-1 d-flex flex-column rounded elevation-2 p-2 my-2 bg-light text-dark">
