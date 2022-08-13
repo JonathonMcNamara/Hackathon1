@@ -58,14 +58,14 @@ export class Post {
     `
   }
 
-  get Comments(){
-  let template = ''
-  let comments = ProxyState.comments.filter(comment => comment.postId == this.id)
-  comments.forEach(comment => template += comment.commentTemplate)
-  if (template){
-    return template
-  } else {
-    return `<p>No comments made</p>`
-  }
+  get Comments() {
+    let template = ''
+    let comments = ProxyState.comments.filter(comment => comment.postId == this.id)
+    comments.forEach(comment => template += comment.commentTemplate)
+    if (template) {
+      return template
+    } else {
+      return `<p>No comments made</p>`
+    }
   }
 }

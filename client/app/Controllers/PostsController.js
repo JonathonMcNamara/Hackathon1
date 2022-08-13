@@ -20,6 +20,8 @@ export class PostsController {
     this.getPosts()
   }
 
+
+
   async getPosts() {
     try {
       await postsService.getPosts()
@@ -60,14 +62,39 @@ export class PostsController {
     }
   }
 
+  adjustPostForm(postId) {
+    let post = ProxyState.posts.find(p => p.id == postId)
+    document.getElementById('postForm').innerHTML = getPostForm(post)
+  }
+
   async editPost(postId) {
     try {
-      await postsService.editPost(postId)
+      window.event.preventDefault()
+      let form = window.event?.target
+
+      let newPost = {
+        id: postId,
+        // @ts-ignore
+        team: form.team.value,
+        // @ts-ignore
+        title: form.title.value,
+        // @ts-ignore
+        description: form.description.value,
+        // @ts-ignore
+        img: form.img.value,
+        // @ts-ignore
+        date: 'today'
+      }
+
+
+      await postsService.editPost(newPost)
     } catch (error) {
       console.error('[editing post]', error)
       Pop.error(error)
     }
   }
+
+
 
   async deletePost(postId) {
     try {
