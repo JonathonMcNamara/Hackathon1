@@ -6,6 +6,8 @@ function _drawComments() {
   let template = ''
   ProxyState.comments.forEach(c => template += c.commentTemplate)
 
+
+
 }
 export class CommentsController {
   constructor() {
@@ -51,6 +53,7 @@ export class CommentsController {
 
   async deleteComment(commentId) {
     try {
+      // console.log('getting here:?');
       await commentsService.deleteComment(commentId)
     } catch (error) {
       console.error(error)
