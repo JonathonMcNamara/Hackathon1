@@ -1,3 +1,4 @@
+
 export class Post {
   constructor(data) {
     this.postInfo = data.postInfo
@@ -54,9 +55,9 @@ export class Post {
                           7
                           <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
                         </span>
-                        
 
-
+                    </div>
+                    </div>
                   </div>
                 </div>
               </div>
