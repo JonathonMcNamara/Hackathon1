@@ -12,6 +12,7 @@ export class PostsController extends BaseController {
       .get("/:id/comments", this.getCommentsOnPost)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
+      .put("/:id", this.editPost)
       .delete('/:id', this.deletePost)
   }
 
@@ -35,12 +36,22 @@ export class PostsController extends BaseController {
     }
   }
 
-  async getCommentsOnPost(req,res,next) {
+  async editPost(req, res, next) {
     try {
-    let comments = await commentsService.getCommentsOnPost(req.params.id)
-    res.send(comments)  
+      let postData = req.body
+      const post = await postsService.editPost(req.params.id, postData)
+      res.send(post)
     } catch (error) {
-    next(error)  
+      next(error)
+    }
+  }
+
+  async getCommentsOnPost(req, res, next) {
+    try {
+      let comments = await commentsService.getCommentsOnPost(req.params.id)
+      res.send(comments)
+    } catch (error) {
+      next(error)
     }
   }
 
