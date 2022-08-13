@@ -4,7 +4,6 @@ import { api } from "./AxiosService.js"
 
 class PostsService {
 
-
   async getPosts() {
     let res = await api.get('/api/posts')
     console.log(res.data);
@@ -16,6 +15,7 @@ class PostsService {
     console.log('create post in service?');
     let res = await api.post('/api/posts', postFormData)
     let post = new Post(res.data)
+    ProxyState.posts = ProxyState.posts.sort((a, b) => a.date - b.date)
     ProxyState.posts = [...ProxyState.posts, post]
     console.log(ProxyState.posts);
   }
@@ -27,8 +27,6 @@ class PostsService {
     ProxyState.posts.splice(postIndex, 1, post)
     ProxyState.posts = ProxyState.posts
   }
-
-
 
   async deletePost(postId) {
     await api.delete(`/api/posts/${postId}`)
