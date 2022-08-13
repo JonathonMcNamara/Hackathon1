@@ -46,19 +46,12 @@ export class Post {
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <span class="input-group-text selectable" id="basic-addon2">Add</span>
                   </div>
-                  <div id="comment">
+                  < id="comment">
                     <!-- comments template -->
-                    <div class="border-1 rounded elevation-2 p-2 my-2 bg-light text-dark">
-                      <div class="d-flex flex-row justify-content-between">
-                        <span>
-                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
-                          <!-- inject vote count below -->
-                          7
-                          <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
-                        </span>
+             
                       ${this.Comments}
-                    </div>
-                    </div>
+                    
+                  
                   </div>
                 </div>
               </div>
