@@ -17,6 +17,7 @@ export class Comment {
     <div>
       <p>
         ${this.description}
+      </p>
     </div>
     `
   }
