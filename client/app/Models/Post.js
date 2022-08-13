@@ -20,14 +20,14 @@ export class Post {
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <span class="d-flex">
-                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote" onclick="app.postsController.upVote('postId')"></i>
                   <!-- inject vote count below -->
                   ${this.votes}
-                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
+                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote" onclick="app.postsController.downVote('postId')"></i>
                   <span class="ms-2">${this.postInfo.name} | ${this.date}</span>
                 </span>
                 <span>
-                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post"></i>
+                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')"></i>
                   <i class="mdi mdi-delete text-danger selectable" title="Delete Post" onclick="app.postsController.deletePost('${this.id}')"></i>
                 </span>
               </div>
@@ -41,10 +41,10 @@ export class Post {
               </button>
               <div class="collapse" id="collapse${this.creatorId}">
                 <div class="card card-body bg-secondary">
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-3" onsubmit="app.commentsController.createComment(commentFormData)">
                     <input type="text" class="form-control" placeholder="Add Comment..."
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <span class="input-group-text selectable" id="basic-addon2">Add</span>
+                    <span class="input-group-text selectable" id="basic-addon2 type="submit">Add</span>
                   </div>
                       ${this.Comments}
                     

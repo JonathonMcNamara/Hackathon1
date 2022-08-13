@@ -23,9 +23,9 @@ export class CommentsController {
     }
   }
 
-  async createComment() {
+  async createComment(commentFormData) {
     try {
-      await commentsService.createComment()
+
     } catch (error) {
       console.error('[posting comments]', error)
       Pop.error(error)
