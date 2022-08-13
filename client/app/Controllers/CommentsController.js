@@ -25,7 +25,24 @@ export class CommentsController {
 
   async createComment() {
     try {
-      await commentsService.createComment()
+            console.log('creating a comment');
+      // @ts-ignore
+      window.event.preventDefault()
+      // @ts-ignore
+      let form = window.event.target
+
+      // @ts-ignore
+      let newComment = {
+        // @ts-ignore
+        description: form.description.value,
+        // @ts-ignore
+        date: 'today'
+      }
+
+      
+      await commentsService.createComment(newComment)
+      // @ts-ignore
+      form.reset()
     } catch (error) {
       console.error('[posting comments]', error)
       Pop.error(error)
