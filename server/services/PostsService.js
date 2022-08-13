@@ -23,7 +23,9 @@ class PostsService {
 
     async editPost(id, postData) {
         let post = await this.getPostById(id)
-
+        if (post.creatorId.toString() != postData.creatorId) {
+            throw new Forbidden('This is not your post!')
+        }
         post.team = postData.team || post.team
         post.title = postData.title || post.title
         post.description = postData.description || post.description

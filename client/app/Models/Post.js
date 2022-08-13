@@ -27,7 +27,7 @@ export class Post {
                   <span class="ms-2">${this.postInfo.name} | ${this.date}</span>
                 </span>
                 <span>
-                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')"></i>
+                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')" data-bs-toggle="modal" data-bs-target="#createPostModal"></i>
                   <i class="mdi mdi-delete text-danger selectable" title="Delete Post" onclick="app.postsController.deletePost('${this.id}')"></i>
                 </span>
               </div>
