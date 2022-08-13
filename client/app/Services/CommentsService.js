@@ -13,9 +13,10 @@ class CommentsService {
   }
 
   async createComment(commentFormData) {
-    let res = await api.post('/api/comments')
+    let res = await api.post('/api/comments', commentFormData)
     let comment = new Comment(res.data)
     ProxyState.comments = [...ProxyState.comments, comment]
+    console.log(ProxyState.comments);
   }
 
   async deleteComment(commentId) {

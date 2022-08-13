@@ -1,4 +1,6 @@
 import { ProxyState } from "../AppState.js"
+import { getCommentForm } from "../Components/CommentForm.js"
+import { Comment } from "../Models/Comment.js"
 
 export class Post {
   constructor(data) {
@@ -41,11 +43,7 @@ export class Post {
               </button>
               <div class="collapse" id="collapse${this.creatorId}">
                 <div class="card card-body bg-secondary">
-                  <div class="input-group mb-3" onsubmit="app.commentsController.createComment(commentFormData)">
-                    <input type="text" class="form-control" placeholder="Add Comment..."
-                      aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <span class="input-group-text selectable" id="basic-addon2 type="submit">Add</span>
-                  </div>
+                      ${getCommentForm()}
                       ${this.Comments}
                     
                   
@@ -68,4 +66,9 @@ export class Post {
       return `<p>No comments made</p>`
     }
   }
+
+
+
+
+
 }

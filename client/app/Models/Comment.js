@@ -2,7 +2,7 @@
 export class Comment {
   constructor(data) {
     this.creator = data.creator
-    this.description = data.description
+    this.description = data.description || ''
     this.creatorId = data.creatorId
     this.postId = data.postId
     this.id = data.id
@@ -26,4 +26,15 @@ export class Comment {
       </div>
     `
   }
+
+   get CommentForm() {
+  return `
+                  <form class="input-group mb-3" onsubmit="app.commentsController.createComment()">
+                    <input type="text" class="form-control" placeholder="Add Comment..."
+                      aria-label="Recipient's username" aria-describedby="basic-addon2" value="${this.description}">
+                    <button class="btn btn-outline">Add</button>
+                  </form>
+  `
+}
+
 }
