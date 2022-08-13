@@ -13,7 +13,6 @@ function _drawPosts() {
 }
 
 
-
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
@@ -21,8 +20,6 @@ export class PostsController {
     _drawPosts()
     this.getPosts()
   }
-
-
 
   async getPosts() {
     try {
@@ -32,7 +29,6 @@ export class PostsController {
       Pop.error(error)
     }
   }
-
 
   async createPost() {
     try {
@@ -85,7 +81,6 @@ export class PostsController {
         // @ts-ignore
         img: form.img.value,
         // @ts-ignore
-        date: 'today'
       }
 
 
@@ -95,14 +90,20 @@ export class PostsController {
       Pop.error(error)
     }
   }
-
-
-
   async deletePost(postId) {
     try {
       await postsService.deletePost(postId)
     } catch (error) {
       console.error('[deleting post]', error)
+      Pop.error(error)
+    }
+  }
+
+  async upVote(postId) {
+    try {
+      await postsService.upVote(postId)
+    } catch (error) {
+      console.error('[up voting]', error)
       Pop.error(error)
     }
   }
