@@ -4,6 +4,7 @@ import { api } from "./AxiosService.js"
 
 class PostsService {
 
+
   async getPosts() {
     let res = await api.get('/api/posts')
     console.log(res.data);
@@ -17,6 +18,10 @@ class PostsService {
     let post = new Post(res.data)
     ProxyState.posts = [...ProxyState.posts, post]
     console.log(ProxyState.posts);
+  }
+
+  async editPost(postId) {
+    let
   }
 
   async deletePost(postId) {

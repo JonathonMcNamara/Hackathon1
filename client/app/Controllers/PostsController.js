@@ -15,7 +15,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
-    ProxyState.on('comments',_drawPosts)
+    ProxyState.on('comments', _drawPosts)
     _drawPosts()
     this.getPosts()
   }
@@ -56,6 +56,15 @@ export class PostsController {
       form.reset()
     } catch (error) {
       console.error('[creating posts]', error)
+      Pop.error(error)
+    }
+  }
+
+  async editPost(postId) {
+    try {
+      await postsService.editPost(postId)
+    } catch (error) {
+      console.error('[editing post]', error)
       Pop.error(error)
     }
   }
