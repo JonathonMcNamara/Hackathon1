@@ -15,6 +15,7 @@ function _drawPosts() {
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
+    ProxyState.on('comments',_drawPosts)
     _drawPosts()
     this.getPosts()
   }

@@ -1,3 +1,4 @@
+import { ProxyState } from "../AppState.js"
 
 export class Post {
   constructor(data) {
@@ -55,7 +56,7 @@ export class Post {
                           7
                           <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
                         </span>
-
+                      ${this.Comments}
                     </div>
                     </div>
                   </div>
@@ -65,5 +66,16 @@ export class Post {
           </div>
 
     `
+  }
+
+  get Comments(){
+  let template = ''
+  let comments = ProxyState.comments.filter(comment => comment.postId == this.id)
+  comments.forEach(comment => template += comment.commentTemplate)
+  if (template){
+    return template
+  } else {
+    return `<p>No comments made</p>`
+  }
   }
 }
