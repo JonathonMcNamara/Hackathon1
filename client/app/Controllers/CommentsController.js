@@ -10,6 +10,7 @@ function _drawComments() {
 export class CommentsController {
   constructor() {
     ProxyState.on('comments', _drawComments)
+    ProxyState.on('posts', _drawComments)
     this.getComments()
   }
 
@@ -23,7 +24,7 @@ export class CommentsController {
     }
   }
 
-  async createComment() {
+  async createComment(postId) {
     try {
             console.log('creating a comment');
       // @ts-ignore
@@ -35,8 +36,7 @@ export class CommentsController {
       let newComment = {
         // @ts-ignore
         description: form.description.value,
-        // @ts-ignore
-        date: 'today'
+        postId
       }
 
       

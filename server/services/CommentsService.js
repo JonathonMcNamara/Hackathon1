@@ -30,6 +30,7 @@ class CommentsService {
     }
     await postsService.getPostById(commentData.postId)
     let postComment = await dbContext.Comments.create(commentData)
+    await postComment.populate('creator')
     return postComment
   }
 
