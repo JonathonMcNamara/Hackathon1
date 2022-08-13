@@ -46,9 +46,6 @@ export class Post {
                       aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <span class="input-group-text selectable" id="basic-addon2">Add</span>
                   </div>
-                  < id="comment">
-                    <!-- comments template -->
-             
                       ${this.Comments}
                     
                   

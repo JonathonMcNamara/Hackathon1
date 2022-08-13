@@ -1,10 +1,11 @@
-
+import { CommentsController } from "../Controllers/CommentsController.js"
 export class Comment {
   constructor(data) {
     this.creator = data.creator
     this.description = data.description
     this.creatorId = data.creatorId
     this.postId = data.postId
+    this.id = data.id
   }
 
   get commentTemplate() {
@@ -15,7 +16,7 @@ export class Comment {
             <h5>${this.creator.name}</h5>
             <div>
             <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Comment"></i>
-            <i class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
+            <i onclick="app.commentsController.deleteComment(${this.id})" class="mdi mdi-delete text-danger selectable" title="Delete Comment"></i>
             </div>
           </span>
           <span>
