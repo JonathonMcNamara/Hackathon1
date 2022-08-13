@@ -10,25 +10,18 @@ export class PostsController extends BaseController {
       .get("", this.getAll)
       .get("/:id", this.getPostById)
       .get("/:id/comments", this.getCommentsOnPost)
-      .put("/:id/vote", this.upVotes)
+      .put("/:id/upVote", this.upVote)
+      .put(':/id/downVote',this.downVote)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
       .put("/:id", this.editPost)
-      .put(':/id',this.editVote)
       .delete('/:id', this.deletePost)
   }
   
 
-  // we need a function for upvotes & downvotes as a .post
+  // we need a function for upVote & downVotes as a .post
 
-  async upVotes(req, res, next) {
-    try {
-      let vote = await postsService.upVotes(req.params.id)
-      res.send(vote)
-    } catch (error) {
-      next(error)
-    }
-  }
+
 
   async getAll(req, res, next) {
     try {
@@ -89,13 +82,21 @@ export class PostsController extends BaseController {
     }
   }
 
-  async editVote(req,res,next) {
+    async upVote(req, res, next) {
     try {
-    const postId = req.params.id
-    const userId = req.userInfo.id
-    await postsService.editVote(postId, userId)
+      let vote = await postsService.upVote(req.params.id)
+      res.send(vote)
     } catch (error) {
-    next(error) 
+      next(error)
+    }
+  }
+
+  async downVote(req,res,next) {
+    try {
+      let vote = await postsService.downVote(req.params.id)
+      res.send(vote)
+    } catch (error) {
+      next(error)
     }
   }
 

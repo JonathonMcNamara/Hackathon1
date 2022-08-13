@@ -13,18 +13,20 @@ export class Post {
     this.votes = data.votes || 0
     this.date = new Date(data.createdAt)
     this.id = data.id || ''
+    
+
   }
 
 
   get PostTemplate() {
     return `
-      <div class="card mb-3 text-dark" style="width: 40rem;">
+      <div class="card mb-3 text-dark ${this.team == 'jake' ? 'style-jake' : ''} ${this.team == 'mick' ? 'style-mick' : ''}" style="width: 35rem;">
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <span class="d-flex">
-                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote" onclick="app.postsController.upVotes('${this.id}')"></i>
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="upVote" onclick="app.postsController.upVote('${this.id}')"></i>
                   ${this.votes}
-                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote" onclick="app.postsController.downVote('${this.id}')"></i>
+                  <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="downVote" onclick="app.postsController.downVote('${this.id}')"></i>
                   <span class="ms-2">${this.postInfo.name} | ${this.date.toLocaleTimeString()}</span>
                 </span>
                 <span>
@@ -36,12 +38,12 @@ export class Post {
               <h4>${this.title}</h4>
               <p class="card-text">${this.description}
               </p>
-              <button class="btn btn-outline-dark rounded-top" type="button" data-bs-toggle="collapse"
+              <button class="btn btn-secondary text-light comment-button" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse${this.creatorId}" aria-expanded="false" aria-controls="collapseExample">
                 Comments
               </button>
               <div class="collapse" id="collapse${this.creatorId}">
-                <div class="card card-body bg-secondary">
+                <div class="card card-body bg-secondary comment-floor">
                       ${getCommentForm(this.id)}
                       ${this.Comments}
                     
@@ -65,9 +67,5 @@ export class Post {
       return `<p>No comments made</p>`
     }
   }
-
-
-
-
 
 }

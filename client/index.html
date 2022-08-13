@@ -24,6 +24,7 @@
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
       </a>
+      <h1 class="col-12 fixed-top text-center mb-0 mt-2">Class Warfare</h1>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -39,14 +40,15 @@
 
 
   <main id="app" class="container-fluid window">
-    <div class="row window-size no-scroll">
+    <div class="row window-size hide-scroll">
 
       <!-- Team A -->
       <section class="col-3 team text-center fixed-top">
-        <h1>Team Jake</h1>
-        <h3>Votes: <span>0</span></h3>
-        <img class="img-fluid rounded-circle" src="https://ca.slack-edge.com/T1GGQN1RU-U1GGYL6CF-g83107b4a2a4-512"
-          alt="">
+        <div class="border border-1 border-danger rounded">
+          <h1>Team Jake</h1>
+          <h3>Votes: <span id="jakesScore">0</span></h3>
+          <img class="rounded-bottom img-fluid" src="https://avatars.githubusercontent.com/u/7350663?v=4" alt="">
+        </div>
       </section>
 
       <!-- View port -->
@@ -79,7 +81,7 @@
             <div class="card-body">
               <div class="d-flex flex-row justify-content-between align-items-center">
                 <span class="d-flex">
-                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                  <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="editVote"></i>
                   inject vote count below
                   125
                   <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
@@ -110,7 +112,7 @@
                     <div class="border-1 rounded elevation-2 p-2 my-2 bg-light text-dark">
                       <div class="d-flex flex-row justify-content-between">
                         <span>
-                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="UpVote"></i>
+                          <i class="mdi mdi-arrow-up-bold-circle text-success selectable" title="editVote"></i>
                           7
                           <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote"></i>
                         </span>
@@ -146,10 +148,14 @@
 
       <!-- Team B -->
       <section class="col-3 offset-9 team text-center fixed-top">
-        <h1>Team Mick</h1>
-        <h3>Votes: <span>0</span></h3>
-        <img class="img-fluid rounded-circle" src="https://ca.slack-edge.com/T1GGQN1RU-U015QPWCW8H-475e10cecf58-512"
-          alt="">
+        <div class="border border-1 border-success rounded">
+          <h1>Team Mick</h1>
+          <h3>Votes: <span>0</span></h3>
+          <img class="rounded-bottom img-fluid"
+            src="https://media-exp1.licdn.com/dms/image/C4D03AQHQ1hkP8oGLcg/profile-displayphoto-shrink_400_400/0/1600292459548?e=1665619200&v=beta&t=rl5mro6lGoRn_Ds03b5k5R-x5e61daREmEnms8XKj6Y"
+            alt="">
+        </div>
+      </section>
       </section>
     </div>
 

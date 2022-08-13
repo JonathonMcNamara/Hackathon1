@@ -23,3 +23,26 @@ textarea {
 .team {
   margin-top: 10vh;
 }
+
+.comment-button {
+  border-radius: 0%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.comment-floor {
+  border-top-left-radius: 0%;
+  border: 0ch;
+}
+
+.img-teach {
+  width: 40vh;
+}
+
+.style-jake {
+  border: 5px solid red !important;
+}
+
+.style-mick {
+  border: 5px solid green !important;
+}

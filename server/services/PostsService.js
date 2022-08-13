@@ -2,13 +2,16 @@ import { dbContext } from "../db/DbContext.js"
 import { BadRequest, Forbidden } from "../utils/Errors.js"
 
 class PostsService {
-    editVote(postId, userId) {
-      throw new Error("Method not implemented.")
+    async downVote(postId) {
+        let post = await this.getPostById(postId)
+            post.votes--
+        await post.save()
+        return post
     }
 
-    async upVotes(postId) {
+    async upVote(postId) {
         let post = await this.getPostById(postId)
-        post.votes++
+            post.votes++
         await post.save()
         return post
     }
@@ -33,9 +36,13 @@ class PostsService {
 
     async editPost(id, postData) {
         let post = await this.getPostById(id)
-        if (post.creatorId.toString() != postData.creatorId) {
-            throw new Forbidden('This is not your post!')
-        }
+
+        // commented out to enable up voting on other posts.  maybe replace with a ternary to hide the edit button instead?
+
+        // if (post.creatorId.toString() != postData.creatorId) {
+        //     throw new Forbidden('This is not your post!')
+        // }
+        
         post.team = postData.team || post.team
         post.title = postData.title || post.title
         post.description = postData.description || post.description

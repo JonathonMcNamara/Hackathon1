@@ -53,8 +53,9 @@ export class CommentsController {
 
   async deleteComment(commentId) {
     try {
-      console.log('getting here:?');
-      await commentsService.deleteComment(commentId)
+      if (await Pop.confirm()) {
+        await commentsService.deleteComment(commentId)
+          }
     } catch (error) {
       console.error(error)
       Pop.error(error)

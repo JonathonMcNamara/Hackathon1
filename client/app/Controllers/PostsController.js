@@ -9,6 +9,7 @@ function _drawPosts() {
   ProxyState.posts.forEach(p => template += p.PostTemplate)
   // @ts-ignore
   document.getElementById('post').innerHTML = template
+  // @ts-ignore
   document.getElementById('postForm').innerHTML = getPostForm()
 }
 
@@ -53,6 +54,7 @@ export class PostsController {
       }
 
       await postsService.createPost(newPost)
+      // @ts-ignore
       form.reset()
     } catch (error) {
       console.error('[creating posts]', error)
@@ -62,11 +64,13 @@ export class PostsController {
 
   adjustPostForm(postId) {
     let post = ProxyState.posts.find(p => p.id == postId)
+    // @ts-ignore
     document.getElementById('postForm').innerHTML = getPostForm(post)
   }
 
   async editPost(postId) {
     try {
+      // @ts-ignore
       window.event.preventDefault()
       let form = window.event?.target
 
@@ -92,18 +96,29 @@ export class PostsController {
   }
   async deletePost(postId) {
     try {
-      await postsService.deletePost(postId)
+      if (await Pop.confirm()) {
+            
+        await postsService.deletePost(postId)
+          }
     } catch (error) {
       console.error('[deleting post]', error)
       Pop.error(error)
     }
   }
 
-  async upVotes(postId) {
+  async upVote(postId) {
     try {
-      await postsService.upVotes(postId)
+      await postsService.upVote(postId)
     } catch (error) {
       console.error('[up voting]', error)
+      Pop.error(error)
+    }
+  }
+  async downVote(postId) {
+    try {
+      await postsService.downVote(postId)
+    } catch (error) {
+      console.error('[down voting]', error)
       Pop.error(error)
     }
   }
