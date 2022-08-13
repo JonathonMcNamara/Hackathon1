@@ -12,6 +12,8 @@ function _drawPosts() {
   document.getElementById('postForm').innerHTML = getPostForm()
 }
 
+
+
 export class PostsController {
   constructor() {
     ProxyState.on('posts', _drawPosts)
@@ -51,7 +53,7 @@ export class PostsController {
         // @ts-ignore
         img: form.img.value,
         // @ts-ignore
-        date: 'today'
+
       }
 
       await postsService.createPost(newPost)

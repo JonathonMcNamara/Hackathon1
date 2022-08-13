@@ -8,7 +8,7 @@ export const PostSchema = new Schema(
         title: { type: String, required: true, minlength: 5, maxlength: 20 },
         img: { type: String, required: true },
         description: { type: String, required: true, minlength: 10, maxlength: 200 },
-        date: { type: String, required: true, },
+        date: { type: Date, },
         votes: { type: Number, required: true, default: 0 },
         blank: { type: String, }
     },

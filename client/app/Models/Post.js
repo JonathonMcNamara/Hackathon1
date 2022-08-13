@@ -11,7 +11,7 @@ export class Post {
     this.img = data.img || ''
     this.description = data.description || ''
     this.votes = data.votes || 0
-    this.date = data.date || ''
+    this.date = new Date(data.createdAt)
     this.id = data.id || ''
   }
 
@@ -26,7 +26,7 @@ export class Post {
                   <!-- inject vote count below -->
                   ${this.votes}
                   <i class="mdi mdi-arrow-down-bold-circle text-danger selectable" title="DownVote" onclick="app.postsController.downVote('postId')"></i>
-                  <span class="ms-2">${this.postInfo.name} | ${this.date}</span>
+                  <span class="ms-2">${this.postInfo.name} | ${this.date.toLocaleTimeString()}</span>
                 </span>
                 <span>
                   <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')" data-bs-toggle="modal" data-bs-target="#createPostModal"></i>
