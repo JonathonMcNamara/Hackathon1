@@ -13,6 +13,7 @@ export class Post {
     this.votes = data.votes || 0
     this.date = new Date(data.createdAt)
     this.id = data.id || ''
+    this.toggle = data.toggle || false
     
 
   }

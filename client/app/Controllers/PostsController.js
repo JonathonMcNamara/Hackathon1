@@ -109,6 +109,17 @@ export class PostsController {
   async upVote(postId) {
     try {
       await postsService.upVote(postId)
+      let post = ProxyState.posts.find(p => p.id == postId)
+      // @ts-ignore
+      if (post.team == 'jake') {
+        
+        // @ts-ignore
+        document.getElementById('jakesScore').innerHTML = post.votes
+      // @ts-ignore
+      } else if (post.team == 'mick') {
+                // @ts-ignore
+        document.getElementById('micksScore').innerHTML = post.votes
+      }
     } catch (error) {
       console.error('[up voting]', error)
       Pop.error(error)
@@ -117,6 +128,17 @@ export class PostsController {
   async downVote(postId) {
     try {
       await postsService.downVote(postId)
+      let post = ProxyState.posts.find(p => p.id == postId)
+      // @ts-ignore
+      if (post.team == 'jake') {
+        
+        // @ts-ignore
+        document.getElementById('jakesScore').innerHTML = post.votes
+      // @ts-ignore
+      } else if (post.team == 'mick') {
+                // @ts-ignore
+        document.getElementById('micksScore').innerHTML = post.votes
+      }
     } catch (error) {
       console.error('[down voting]', error)
       Pop.error(error)
