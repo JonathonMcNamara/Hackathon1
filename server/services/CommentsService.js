@@ -15,7 +15,7 @@ class CommentsService {
   
   async getCommentById(id) {
     let comment = await dbContext.Comments.findById(id)
-    console.log('getcommentby id', comment);
+    console.log('get comment by id', comment);
     if (!comment) {
       throw new BadRequest ('invalid comment id')
     }

@@ -17,6 +17,8 @@ export class Post {
 
   }
 
+// on line 35, need to compare the logged in user to the post creator to add or remove hidden to fix the edit.    Or fix it the right way in the server. 
+
 
   get PostTemplate() {
     return `
@@ -30,7 +32,7 @@ export class Post {
                   <span class="ms-2">${this.postInfo.name} | ${this.date.toLocaleTimeString()}</span>
                 </span>
                 <span>
-                  <i class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')" data-bs-toggle="modal" data-bs-target="#createPostModal"></i>
+                  <i ${this.id !== this.creatorId ? 'hidden' : ''} class="mdi mdi-pencil text-info selectable me-2" title="Edit Post" onclick="app.postsController.adjustPostForm('${this.id}')" data-bs-toggle="modal" data-bs-target="#createPostModal"></i>
                   <i class="mdi mdi-delete text-danger selectable" title="Delete Post" onclick="app.postsController.deletePost('${this.id}')"></i>
                 </span>
               </div>
@@ -46,8 +48,6 @@ export class Post {
                 <div class="card card-body bg-secondary comment-floor">
                       ${getCommentForm(this.id)}
                       ${this.Comments}
-                    
-                  
                   </div>
                 </div>
               </div>
@@ -66,6 +66,14 @@ export class Post {
     } else {
       return `<p>No comments made</p>`
     }
+  }
+
+  get BootTemplate() {
+    return `
+    <div class="" style="padding-top: ${this.votes}%;">
+    <img src="https://www.nicepng.com/png/detail/968-9687195_anvil-clipart-transparent-png-anvil-clip-art-transparent.png" alt="">
+    </div>
+    `
   }
 
 }

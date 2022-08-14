@@ -37,16 +37,18 @@ class PostsService {
 
   async upVote(postId) {
     let res = await api.put(`/api/posts/${postId}`)
+    // console.log('upvote res', res);
     // res.data.votes--
     await api.put(`/api/posts/${postId}/upVote`)
-
+        ProxyState.posts = ProxyState.posts
   }
 
   async downVote(postId) {
     let res = await api.put(`/api/posts/${postId}`)
+    // console.log('downVote res', res);
     // res.data.votes--
     await api.put(`/api/posts/${postId}/downVote`)
-
+    ProxyState.posts = ProxyState.posts
   }
 
   async editVote(postId) {

@@ -11,7 +11,7 @@ export class PostsController extends BaseController {
       .get("/:id", this.getPostById)
       .get("/:id/comments", this.getCommentsOnPost)
       .put("/:id/upVote", this.upVote)
-      .put(':/id/downVote',this.downVote)
+      .put('/:id/downVote', this.downVote)
       .use(Auth0Provider.getAuthorizedUserInfo)
       .post("", this.createPost)
       .put("/:id", this.editPost)
@@ -85,7 +85,7 @@ export class PostsController extends BaseController {
     async upVote(req, res, next) {
     try {
       let vote = await postsService.upVote(req.params.id)
-      res.send(vote)
+      return res.send(vote)
     } catch (error) {
       next(error)
     }
@@ -94,7 +94,7 @@ export class PostsController extends BaseController {
   async downVote(req,res,next) {
     try {
       let vote = await postsService.downVote(req.params.id)
-      res.send(vote)
+      return res.send(vote)
     } catch (error) {
       next(error)
     }
